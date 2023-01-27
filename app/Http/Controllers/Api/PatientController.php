@@ -38,12 +38,19 @@ class PatientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Patient $patient
-     * @return Response
+     * @param int $id
+     * @return PatientResource
      */
-    public function show(Patient $patient)
+    public function show( int $id ): PatientResource
     {
-        //
+        $patient = Patient::find( $id );
+
+        if ( !$patient ) {
+            abort( 404, 'Patient not found' );
+        }
+
+        return new PatientResource( $patient );
+
     }
 
     /**
