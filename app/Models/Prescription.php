@@ -32,6 +32,10 @@ class Prescription extends Model
 
     }
 
+    protected $dates = [
+        'prescription_date'
+    ];
+
     /**
      * medicines/items in prescription
      * @return HasMany
