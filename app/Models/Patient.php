@@ -22,6 +22,10 @@ class Patient extends Model
 
     }
 
+    protected $dates = [
+        'dob'
+    ];
+
     /**
      * patient's prescriptions
      * @return HasMany
