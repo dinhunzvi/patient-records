@@ -11,9 +11,9 @@ class WardRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,47 @@ class WardRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
+    {
+        return $this->isMethod( 'POST' ) ? $this->store() : $this->update();
+
+    }
+
+    /**
+     * validation rules for storing a ward
+     * @return string[]
+     */
+    public function store(): array
     {
         return [
-            //
+            'name'      => 'required|unique:wards,name'
         ];
+
     }
+
+    /**
+     * validation rules for updating a ward
+     * @return string[]
+     */
+    public function update(): array
+    {
+        return [
+            'name'      => 'required|unique:wards,name,' . $this->ward_id
+        ];
+
+    }
+
+    /**
+     * validation error messages
+     * @return string[]
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Enter the ward\'s name',
+            'name.unique'   => 'Ward\'s name already taken'
+        ];
+
+    }
+
 }
