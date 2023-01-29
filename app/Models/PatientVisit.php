@@ -12,6 +12,10 @@ class PatientVisit extends Model
 
     protected $guarded = [];
 
+    protected $dates = [
+        'visit_date'
+    ];
+
     /**
      * patient prescription belongs to
      * @return BelongsTo
@@ -23,7 +27,7 @@ class PatientVisit extends Model
     }
 
     /**
-     * user who created prescription
+     * user who created patient visit
      * @return BelongsTo
      */
     public function user(): BelongsTo
