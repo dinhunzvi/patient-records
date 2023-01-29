@@ -65,7 +65,7 @@ class PatientRequest extends FormRequest
      * validation error messages
      * @return string[]
      */
-    public function messages()
+    public function messages(): array
     {
         return [
             'first_name.required'   => 'Enter patient\'s first name',
