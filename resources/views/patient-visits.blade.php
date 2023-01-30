@@ -130,6 +130,8 @@
 
     </div>
 
+    @include( 'date_pickers.visit_date' )
+
 @endsection
 
 @section( 'js_file', 'patient-visits.js' )

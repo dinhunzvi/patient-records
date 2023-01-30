@@ -166,6 +166,8 @@
 
     </div>
 
+    @include( 'date_pickers.dob' )
+
 @endsection
 
 @section( 'js_file', 'patients.js' )
