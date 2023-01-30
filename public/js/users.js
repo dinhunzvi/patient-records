@@ -13,9 +13,9 @@ $( document ).ready( function () {
     function get_users() {
         $.ajax({
             dataType    : 'json',
-            headers     : {
+            /*headers     : {
                 "Authorization" : 'Bearer ' + localStorage.getItem( authorization_token )
-            }, method   : 'GET',
+            },*/ method   : 'GET',
             success     : function ( users ) {
 
                 let table = $( '#users' );
@@ -57,9 +57,9 @@ $( document ).ready( function () {
 
         $.ajax({
            dataType : 'json',
-            headers     : {
+            /*headers     : {
                 "Authorization" : 'Bearer ' + localStorage.getItem( authorization_token )
-            }, method: 'GET',
+            },*/ method: 'GET',
            success  : function ( user ) {
 
                current_user = user;
@@ -95,9 +95,9 @@ $( document ).ready( function () {
 
         $.ajax({
             dataType    : 'json',
-            headers     : {
+            /*headers     : {
                 "Authorization" : 'Bearer ' + localStorage.getItem( authorization_token )
-            }, method   : 'DELETE',
+            },*/ method   : 'DELETE',
             success     : function () {
 
                 $( '#message' ).append( '<div class="alert alert-success alert-dismissible fade show">' +
@@ -154,9 +154,9 @@ $( document ).ready( function () {
 
                 }
 
-            }, headers  : {
+            }/*, headers  : {
                 "Authorization" : 'Bearer ' + localStorage.getItem( authorization_token )
-            }, method   : 'POST',
+            }*/, method   : 'POST',
             success     : function () {
 
                 $( '#message' ).append( '<div class="alert alert-success alert-dismissible fade show">' +
@@ -198,9 +198,9 @@ $( document ).ready( function () {
 
                 }
 
-            }, headers  : {
+            }/*, headers  : {
                 "Authorization" : 'Bearer ' + localStorage.getItem( authorization_token )
-            }, method   : 'PUT',
+            }*/, method   : 'PUT',
             success     : function () {
 
                 get_users();

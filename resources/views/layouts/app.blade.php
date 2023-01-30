@@ -94,8 +94,8 @@ to get the desired effect
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-        @include( 'modals.sign_out' )
-        @include( 'modals.change_password' )
+        @include( 'modals.sign-out' )
+        @include( 'modals.change-password' )
 
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -136,7 +136,7 @@ to get the desired effect
 
     <!-- Main Footer -->
     <footer class="main-footer">
-        <strong>Copyright &copy; {{ date( 'Y' ) }} Frazier Logistics</strong>
+        <strong>Copyright &copy; {{ date( 'Y' ) }} Sally Mugabe Central Hospital</strong>
         All rights reserved.
 
     </footer>
