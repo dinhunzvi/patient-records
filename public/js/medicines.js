@@ -173,8 +173,6 @@ $( function () {
 
                     response( data );
 
-                    console.log( data );
-
                 }, url      : 'api/measurement-units/search'
             });
         }
