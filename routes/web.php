@@ -55,8 +55,8 @@ Route::get( '/patient-visits', function () {
 
 Route::get( '/measurement-units', function () {
     return view( 'measurement-units', [
-        'charts'        => true,
-        'data_tables'   => false,
+        'charts'        => false,
+        'data_tables'   => true,
         'date_picker'   => false,
         'moment'        => false,
         'type_ahead'    => false,

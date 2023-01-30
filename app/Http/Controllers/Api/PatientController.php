@@ -82,4 +82,18 @@ class PatientController extends Controller
 
     }
 
+    /**
+     * search for patients
+     * @param Request $request
+     * @return AnonymousResourceCollection
+     */
+    public function search( Request $request ): AnonymousResourceCollection
+    {
+        $name = trim( $request->get( 'name' ) );
+
+        return PatientResource::collection( Patient::where( 'first_name', 'like', "%{$name}%" )
+            ->orWhere( 'last_name', 'like', "%{$name}%" )->get() );
+
+    }
+
 }

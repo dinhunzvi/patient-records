@@ -1,6 +1,6 @@
 @extends( 'layouts.app' )
 
-@section( 'title', 'Users' )
+@section( 'title', 'Medicines' )
 
 @section( 'content' )
 
@@ -16,26 +16,26 @@
 
                         <div class="col-md-4">
 
-                            <h4>User details</h4>
+                            <h4>Medicine details</h4>
 
                         </div>
 
                     </div>
 
-                    @include( 'includes.modal_message' )
+                    @include( 'includes.message' )
 
-                    <form method="post" id="user-details">
+                    <form method="post" id="medicine-details">
 
                         <div class="row">
 
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
 
-                                <div class="form-group" id="name_grp">
+                                <div class="form-group" id="measurement_unit_grp">
 
-                                    <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" autocomplete="off"
-                                           placeholder="Name" autofocus />
-                                    <input type="hidden" id="user_id" name="user_id" />
+                                    <label for="measurement_unit">Measurement unit</label>
+                                    <input type="text" name="measurement_unit" id="measurement_unit" autofocus
+                                           class="form-control" placeholder="Measurement unit" autocomplete="off" />
+                                    <input type="hidden" name="measurement_unit_id" id="measurement_unit_id" />
 
                                 </div>
 
@@ -43,11 +43,12 @@
 
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
 
-                                <div class="form-group" id="email_grp">
+                                <div class="form-group" id="name_grp">
 
-                                    <label for="email">Email address</label>
-                                    <input type="text" id="email" name="email" class="form-control" autocomplete="off"
-                                           placeholder="Email address" />
+                                    <label for="name">Medicine name</label>
+                                    <input type="text" name="name" id="name" class="form-control" autocomplete="off"
+                                           placeholder="Medicine name" />
+                                    <input type="hidden" name="medicine_id" id="medicine_id" />
 
                                 </div>
 
@@ -77,14 +78,14 @@
 
                 <div class="card-body">
 
-                    <table class="table table-striped table-hover" id="users">
+                    <table class="table table-hover table-striped" id="medicines">
 
                         <thead>
 
                             <tr>
 
-                                <th>Name</th>
-                                <th>Email address</th>
+                                <th>Measurement unit</th>
+                                <th>Medicine</th>
                                 <th>Date created</th>
                                 <th>Date updated</th>
                                 <th>Actions</th>
@@ -105,4 +106,4 @@
 
 @endsection
 
-@section( 'js_file', 'users.js' )
+@section( 'js_file', 'medicines.js' )

@@ -41,3 +41,7 @@ Route::apiResource( '/prescriptions', PrescriptionController::class );
 Route::apiResource( '/wards', WardController::class );
 
 Route::apiResource( '/beds', BedController::class );
+
+Route::post( '/measurement-units/search', [ MeasurementUnitController::class, 'search' ] );
+
+Route::post( '/patients/search', [ PatientController::class, 'search' ] );

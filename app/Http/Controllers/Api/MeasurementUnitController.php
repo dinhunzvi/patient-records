@@ -31,7 +31,7 @@ class MeasurementUnitController extends Controller
      */
     public function store(MeasurementUnitRequest $request): MeasurementUnitResource
     {
-        return new MeasurementUnitResource( $request->validated() );
+        return new MeasurementUnitResource( MeasurementUnit::create( $request->validated()  ) );
 
     }
 
@@ -79,6 +79,14 @@ class MeasurementUnitController extends Controller
         $measurementUnit->delete();
 
         return response()->noContent();
+
+    }
+
+    public function search( Request $request): AnonymousResourceCollection
+    {
+        $name = trim( $request->get( 'name' ) );
+
+        return MeasurementUnitResource::collection( MeasurementUnit::where( 'name', 'like', "%{$name}%" )->get() );
 
     }
 

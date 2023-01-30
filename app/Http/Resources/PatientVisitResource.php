@@ -24,6 +24,8 @@ class PatientVisitResource extends JsonResource
             'patient_id'    => $this->patient_id,
             'patient'       => ucwords( implode( ' ', [ $this->patient->first_name, $this->patient->last_name ] ) ),
             'visit_date'    => $this->visit_date->format( 'Y-m-d' ),
+            'diagnosis'     => $this->diagnosis,
+            'symptoms'      => $this->symptoms,
             'created_at'    => $this->created_at->format( 'Y-m-d H:i:s' ),
             'updated_at'    => $this->updated_at->format( 'Y-m-d H:i:s' ),
         ];
