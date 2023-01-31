@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
@@ -26,12 +29,18 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param UserRequest $request
+     * @param CreateNewUser $action
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(UserRequest $request, CreateNewUser $action ): RedirectResponse
     {
-        //
+        $action->create($request->validated() );
+
+        return redirect()
+            ->route('users')
+            ->with('success', 'User created successfully.');
+
     }
 
     /**

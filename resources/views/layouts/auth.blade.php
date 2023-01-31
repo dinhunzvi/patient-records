@@ -55,8 +55,7 @@
         <script src="{{ asset( 'js/adminlte.min.js' ) }}" type="text/javascript"></script>
         <!-- Common JS functions -->
         <script src="{{ asset( 'js/common.js' ) }}" type="text/javascript"></script>
-        <!-- JS for page -->
-        <script src="{{ asset( 'js').'/' }}@yield( 'js_file' )" type="text/javascript"></script>
+
     </body>
 </html>
 

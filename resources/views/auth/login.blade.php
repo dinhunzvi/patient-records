@@ -6,9 +6,8 @@
 
     <p class="login-box-msg">Sign in to start your session</p>
 
-    @include( 'includes.auth_message' )
-
-    <form id="sign_in" method="post">
+    <form action="{{ route( 'login' ) }}" method="post">
+        @csrf
 
         <div class="form-group" id="email_grp">
 
@@ -50,7 +49,7 @@
     </form>
 
     <p class="mb-1">
-        <a href="{{ route( 'forgot-password' ) }}">I forgot my password</a>
+        <a href="">I forgot my password</a>
     </p>
 
 @endsection

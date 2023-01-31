@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,7 @@ Route::get( '/', function () {
         'moment'        => false,
         'type_ahead'    => false,
     ]);
-})->name( 'home' );
+})->name( 'home' )->middleware( 'auth' );
 
 Route::get( '/patients', function () {
     return view( 'patients', [
@@ -95,3 +96,5 @@ Route::get( '/verify', function () {
 Route::get( '/register', function () {
     return view( 'auth.register' );
 })->name( 'register' );
+
+Route::post( '/register', [ UserController::class, 'store' ] );
