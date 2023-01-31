@@ -36,7 +36,7 @@
         <div class="form-group" id="email_grp">
 
             <div class="input-group mb-3">
-                <input type="email" name="email" id="email" class="form-control  @error('email') is-invalid @enderror"
+                <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror"
                        placeholder="Email address" autocomplete="off" />
                 <div class="input-group-append">
                     <div class="input-group-text">

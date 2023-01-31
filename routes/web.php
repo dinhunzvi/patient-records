@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\UserController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware( [ 'auth' => 'verified' ] )->group( function () {
+Route::middleware( 'auth')->group( function () {
 
 });
 
@@ -27,7 +25,7 @@ Route::get( '/users', function () {
         'moment'        => false,
         'type_ahead'    => false,
     ]);
-})->name( 'users' );
+})->name( 'users' )->middleware( 'auth' );
 
 Route::get( '/', function () {
     return view( 'home', [
@@ -47,7 +45,7 @@ Route::get( '/patients', function () {
         'moment'        => false,
         'type_ahead'    => false,
     ]);
-})->name( 'patients' );
+})->name( 'patients' )->middleware( 'auth' );
 
 Route::get( '/patient-visits', function () {
     return view( 'patient-visits', [
@@ -57,7 +55,7 @@ Route::get( '/patient-visits', function () {
         'moment'        => true,
         'type_ahead'    => true,
     ]);
-})->name( 'patient-visits' );
+})->name( 'patient-visits' )->middleware( 'auth' );
 
 Route::get( '/measurement-units', function () {
     return view( 'measurement-units', [
@@ -67,7 +65,7 @@ Route::get( '/measurement-units', function () {
         'moment'        => false,
         'type_ahead'    => false,
     ]);
-})->name( 'measurement-units' );
+})->name( 'measurement-units' )->middleware( 'auth' );
 
 Route::get( '/medicines', function () {
     return view( 'medicines', [
@@ -77,7 +75,7 @@ Route::get( '/medicines', function () {
         'moment'        => false,
         'type_ahead'    => true,
     ]);
-})->name( 'medicines' );
+})->name( 'medicines' )->middleware( 'auth' );
 
 Route::get( '/prescriptions', function () {
     return view( 'prescriptions', [
@@ -87,14 +85,14 @@ Route::get( '/prescriptions', function () {
         'moment'        => false,
         'type_ahead'    => true,
     ]);
-})->name( 'prescriptions' );
+})->name( 'prescriptions' )->middleware( 'auth' );
 
-Route::get( '/verify', function () {
+/*Route::get( '/verify', function () {
 
-})->name( 'verification.notice' );
+})->name( 'verification.notice' );*/
 
 Route::get( '/register', function () {
     return view( 'auth.register' );
 })->name( 'register' );
 
-Route::post( '/register', [ UserController::class, 'store' ] );
+

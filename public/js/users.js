@@ -36,8 +36,8 @@ $( document ).ready( function () {
                     ], columns      : [
                         { "data"    : "name" },
                         { "data"    : "email" },
-                        { "data"    : "date_created" },
-                        { "data"    : "date_updated" },
+                        { "data"    : "created_at" },
+                        { "data"    : "updated_at" },
                         {
                             mRender : function ( data, type, row ) {
                                 return '<a><i class="fas fa-user-times" data-toggle="tooltip" '
@@ -112,7 +112,7 @@ $( document ).ready( function () {
 
     });
 
-    $( '#user_details' ).submit( function () {
+    $( '#user-details' ).submit( function () {
         clear_error_messages();
 
         disable_button( button );
