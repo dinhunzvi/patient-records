@@ -8,7 +8,9 @@ use App\Http\Controllers\Api\PatientVisitController;
 use App\Http\Controllers\Api\PrescriptionController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\WardController;
+use App\Models\PatientVisit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,3 +47,19 @@ Route::apiResource( '/beds', BedController::class );
 Route::post( '/measurement-units/search', [ MeasurementUnitController::class, 'search' ] );
 
 Route::post( '/patients/search', [ PatientController::class, 'search' ] );
+
+/**
+ * get patient visits by month
+ */
+Route::get( '/patient-visits-by-month', function () {
+    $patient_visits = PatientVisit::select( DB::raw( "count( * ) as patient_visits" ),
+        DB::raw( "concat_ws( '-', monthname( visit_date ), year( visit_date ) ) as visit_month" ) )
+        // ->groupBy( "concat_ws( '-', monthname( visit_date ), year( visit_date ) )" )
+        ->groupBy( "visit_month" )
+        ->get();
+
+    return response()->json([
+        'patient_visits'    => $patient_visits
+    ]);
+
+});
