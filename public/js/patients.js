@@ -111,7 +111,7 @@ $( function () {
                     }
 
                 }
-            }, method   : 'POST',
+            }, method   : 'PUT',
             success     : function () {
 
                 $( '#message' ).append( '<div class="alert alert-success alert-dismissible fade show">' +

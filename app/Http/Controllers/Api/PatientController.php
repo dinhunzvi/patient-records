@@ -19,8 +19,7 @@ class PatientController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-       //  return PatientResource::collection( Patient::orderBy( 'first_name' )->orderBy( 'last_name' )->get() );
-        return PatientResource::collection( Patient::all() );
+        return PatientResource::collection( Patient::orderBy( 'first_name' )->orderBy( 'last_name' )->get() );
 
     }
 

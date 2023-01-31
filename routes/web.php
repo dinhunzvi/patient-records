@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::middleware( [ 'auth' => 'verified' ] )->group( function () {
+
+});
 
 Route::get( '/users', function () {
     return view( 'users', [
@@ -82,3 +87,11 @@ Route::get( '/prescriptions', function () {
         'type_ahead'    => true,
     ]);
 })->name( 'prescriptions' );
+
+Route::get( '/verify', function () {
+
+})->name( 'verification.notice' );
+
+Route::get( '/register', function () {
+    return view( 'auth.register' );
+})->name( 'register' );

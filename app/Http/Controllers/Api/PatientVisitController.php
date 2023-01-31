@@ -47,7 +47,7 @@ class PatientVisitController extends Controller
      * @param int $id
      * @return PatientVisitResource
      */
-    public function show(int $id)
+    public function show(int $id): PatientVisitResource
     {
         $patient_visit = PatientVisit::find( $id );
 
