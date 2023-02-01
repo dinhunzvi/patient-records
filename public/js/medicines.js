@@ -50,7 +50,7 @@ $( function () {
                     }
 
                 }
-            }, method   : '',
+            }, method   : 'POST',
             success     : function () {
 
                 $( '#message' ).append( '<div class="alert alert-success alert-dismissible fade show">' +
