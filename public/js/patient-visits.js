@@ -56,7 +56,7 @@ $( function () {
 
                 }
 
-            }, method   : '',
+            }, method   : 'POST',
             success     : function () {
 
                 $( '#message' ).append( '<div class="alert alert-success alert-dismissible fade show">' +
@@ -101,7 +101,7 @@ $( function () {
 
                 }
 
-            }, method   : '',
+            }, method   : 'PUT',
             success     : function () {
 
                 current_patient_visit = {};

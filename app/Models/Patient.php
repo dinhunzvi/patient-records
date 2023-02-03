@@ -12,16 +12,6 @@ class Patient extends Model
 
     protected $guarded = [];
 
-    /**
-     * patient's visits
-     * @return HasMany
-     */
-    public function patient_visits(): HasMany
-    {
-        return $this->hasMany( PatientVisit::class );
-
-    }
-
     protected $dates = [
         'dob'
     ];
