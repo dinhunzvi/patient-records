@@ -4,11 +4,11 @@ use App\Http\Controllers\Api\BedController;
 use App\Http\Controllers\Api\MeasurementUnitController;
 use App\Http\Controllers\Api\MedicineController;
 use App\Http\Controllers\Api\PatientController;
-use App\Http\Controllers\Api\PatientVisitController;
 use App\Http\Controllers\Api\PrescriptionController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\VisitController;
 use App\Http\Controllers\Api\WardController;
-use App\Models\PatientVisit;
+use App\Models\Visit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +36,7 @@ Route::apiResource( '/measurement-units', MeasurementUnitController::class );
 
 Route::apiResource( '/medicines', MedicineController::class );
 
-Route::apiResource( '/patient-visits', PatientVisitController::class );
+Route::apiResource( '/visits', VisitController::class );
 
 Route::apiResource( '/prescriptions', PrescriptionController::class );
 
@@ -52,7 +52,7 @@ Route::post( '/patients/search', [ PatientController::class, 'search' ] );
  * get patient visits by month
  */
 Route::get( '/patient-visits-by-month', function () {
-    $patient_visits = PatientVisit::select( DB::raw( "count( * ) as patient_visits" ),
+    $patient_visits = Visit::select( DB::raw( "count( * ) as patient_visits" ),
         DB::raw( "concat_ws( '-', monthname( visit_date ), year( visit_date ) ) as visit_month" ) )
         // ->groupBy( "concat_ws( '-', monthname( visit_date ), year( visit_date ) )" )
         ->groupBy( "visit_month" )

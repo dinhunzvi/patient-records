@@ -66,7 +66,7 @@ $( function () {
                 current_patient_visit = {};
                 show_patient_visit( current_patient_visit );
 
-            }, url      : 'api/patient-visits'
+            }, url      : 'api/visits'
         });
 
     }
@@ -111,7 +111,7 @@ $( function () {
                     '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span ' +
                     'aria-hidden="true">&times;</span></button>Patient visit successfully updated</div>' );
 
-            }, url      : 'api/patient-visits/' + $( '#patient_visit_id' ).val()
+            }, url      : 'api/visits/' + $( '#patient_visit_id' ).val()
         });
 
     }
@@ -153,7 +153,7 @@ $( function () {
                     ]
                 });
 
-            }
+            }, url      : 'api/visits'
         });
 
     }

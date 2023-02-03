@@ -14,6 +14,11 @@ class VisitResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id'            => $this->id,
+            'user_id'       => $this->user_id,
+            'user'          => ucwords( implode( ' ', [ $this->user->first_name, $this->user->last_name ] ) ),
+
+        ];
     }
 }

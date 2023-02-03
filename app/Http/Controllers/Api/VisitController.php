@@ -3,37 +3,49 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VisitRequest;
+use App\Http\Resources\VisitResource;
 use App\Models\Visit;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 class VisitController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
-        //
+        return VisitResource::collection( Visit::all() );
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param VisitRequest $request
+     * @return VisitResource
      */
-    public function store(Request $request)
+    public function store(VisitRequest $request): VisitResource
     {
-        //
+        return new VisitResource( Visit::create([
+            'user_id'       => auth()->id(),
+            'patient_id'    => $request->patient_id,
+            'visit_date'    => $request->visit_date,
+            'symptoms'      => $request->symptoms,
+            'diagnosis'     => $request->diagnosis
+        ]));
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Visit  $visit
-     * @return \Illuminate\Http\Response
+     * @param Visit $visit
+     * @return Response
      */
     public function show(Visit $visit)
     {
@@ -43,23 +55,30 @@ class VisitController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Visit  $visit
-     * @return \Illuminate\Http\Response
+     * @param VisitRequest $request
+     * @param Visit $visit
+     * @return VisitResource
      */
-    public function update(Request $request, Visit $visit)
+    public function update(VisitRequest $request, Visit $visit)
     {
-        //
+        $visit->update( $request->validated() );
+
+        return new VisitResource( $visit );
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Visit  $visit
-     * @return \Illuminate\Http\Response
+     * @param Visit $visit
+     * @return Response
      */
-    public function destroy(Visit $visit)
+    public function destroy(Visit $visit): Response
     {
-        //
+        $visit->delete();
+
+        return response()->noContent();
+
     }
+
 }

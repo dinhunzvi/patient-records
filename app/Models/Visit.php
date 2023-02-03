@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Visit extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    protected $dates = [
+        'visit_date'
+    ];
+
+
 }
