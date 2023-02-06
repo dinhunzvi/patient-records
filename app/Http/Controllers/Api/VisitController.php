@@ -31,13 +31,7 @@ class VisitController extends Controller
      */
     public function store(VisitRequest $request): VisitResource
     {
-        return new VisitResource( Visit::create([
-            'user_id'       => auth()->id(),
-            'patient_id'    => $request->patient_id,
-            'visit_date'    => $request->visit_date,
-            'symptoms'      => $request->symptoms,
-            'diagnosis'     => $request->diagnosis
-        ]));
+        return new VisitResource( Visit::create( $request->validated() ) );
 
     }
 
@@ -59,7 +53,7 @@ class VisitController extends Controller
      * @param Visit $visit
      * @return VisitResource
      */
-    public function update(VisitRequest $request, Visit $visit)
+    public function update(VisitRequest $request, Visit $visit): VisitResource
     {
         $visit->update( $request->validated() );
 

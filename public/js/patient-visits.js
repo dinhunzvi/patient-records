@@ -145,7 +145,7 @@ $( function () {
                         { "data"    : "updated_at" },
                         {
                             mRender : function ( data, type, row ) {
-                                return '<a><i class="fas fa-trash" data-toggle="tooltip" title="Delete" id="'
+                                return '<a><i class="fas fa-times" data-toggle="tooltip" title="Delete" id="'
                                     + row.id + '" data-placement="bottom"></i></a><a><i class="fas fa-edit" id="'
                                     + row.id + '" data-toggle="tooltip" data-placement="bottom" title="Edit"></i></a>';
                             }
