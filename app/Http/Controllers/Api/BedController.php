@@ -19,7 +19,7 @@ class BedController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        return BedResource::collection( Bed::with( 'ward' )->orderBy( 'ward' )->get() );
+        return BedResource::collection( Bed::with( 'ward' )->orderBy( 'ward_id' )->get() );
 
     }
 

@@ -53,6 +53,20 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route( 'wards') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Wards</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route( 'beds') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Beds</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="{{ route( 'measurement-units') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Measurement units</p>

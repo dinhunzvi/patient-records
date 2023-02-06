@@ -48,6 +48,8 @@ Route::post( '/measurement-units/search', [ MeasurementUnitController::class, 's
 
 Route::post( '/patients/search', [ PatientController::class, 'search' ] );
 
+Route::post( '/wards/search', [ WardController::class, 'search' ] );
+
 /**
  * get patient visits by month
  */

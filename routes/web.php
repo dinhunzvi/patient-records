@@ -87,6 +87,26 @@ Route::get( '/prescriptions', function () {
     ]);
 })->name( 'prescriptions' )->middleware( 'auth' );
 
+Route::get( '/wards', function () {
+    return view( 'wards', [
+        'charts'        => false,
+        'data_tables'   => true,
+        'date_picker'   => false,
+        'moment'        => false,
+        'type_ahead'    => false,
+    ]);
+})->name( 'wards' )->middleware( 'auth' );
+
+Route::get( '/beds', function () {
+    return view( 'beds', [
+        'charts'        => false,
+        'data_tables'   => true,
+        'date_picker'   => false,
+        'moment'        => false,
+        'type_ahead'    => true,
+    ]);
+})->name( 'beds' )->middleware( 'auth' );
+
 /*Route::get( '/verify', function () {
 
 })->name( 'verification.notice' );*/

@@ -82,4 +82,16 @@ class WardController extends Controller
 
     }
 
+    /**
+     * search for wards using name
+     * @param Request $request
+     * @return AnonymousResourceCollection
+     */
+    public function search( Request $request): AnonymousResourceCollection
+    {
+        $name = trim( $request->get( 'name' ) );
+
+        return WardResource::collection( Ward::where( 'name', 'like', "%{$name}%" )->get() );
+
+    }
 }
