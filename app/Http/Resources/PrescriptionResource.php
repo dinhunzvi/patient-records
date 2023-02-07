@@ -19,8 +19,6 @@ class PrescriptionResource extends JsonResource
     {
         return [
             'id'                => $this->id,
-            'user_id'           => $this->user_id,
-            'created_user'      => $this->user->id,
             'patient_id'        => $this->patient_id,
             'patient_name'      => ucwords( implode( ' ', [ $this->patient->first_name, $this->patient->last_name ] ) ),
             'prescription_date' => $this->prescription_date->format( 'Y-m-d' ),
