@@ -4,14 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -31,15 +29,15 @@ class UserController extends Controller
      *
      * @param UserRequest $request
      * @param CreateNewUser $action
-     * @return RedirectResponse
+     * @return UserResource
      */
-    public function store(UserRequest $request, CreateNewUser $action ): RedirectResponse
+    public function store(UserRequest $request, CreateNewUser $action ): UserResource
     {
-        $action->create($request->validated() );
-
-        return redirect()
-            ->route('users')
-            ->with('success', 'User created successfully.');
+        return new UserResource( $action->create([
+            'name'      => ucwords( trim( $request->name ) ),
+            'email'     => strtolower( trim( $request->email ) ),
+            'password'  => Str::random( 10 )
+        ]) );
 
     }
 

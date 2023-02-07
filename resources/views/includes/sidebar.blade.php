@@ -126,13 +126,6 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="{{ route( 'register' ) }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Add user</p>
-                        </a>
-                    </li>
-
                 </ul>
 
             </li>

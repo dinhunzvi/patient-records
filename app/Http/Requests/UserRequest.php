@@ -37,8 +37,6 @@ class UserRequest extends FormRequest
         return [
             'name'                  => 'required|min:5|max:100',
             'email'                 => 'required|email|unique:users,email',
-            'password'              => [ 'required', Password::defaults(), 'confirmed' ],
-            'password_confirmation' => 'required|min:8'
         ];
 
     }
@@ -69,10 +67,6 @@ class UserRequest extends FormRequest
             'email.required'    => 'Enter user\'s email address',
             'email.email'       => 'Email address is not valid',
             'email.unique'      => 'Email address already taken',
-            'password.required' => 'Enter user\'s password',
-            'password.Password::defaults'   => 'Password must have digits, and special characters',
-            'password.confirmed'    => 'Confirm user\'s password',
-            'password_confirmation.required'    => 'Confirm user\'s password'
         ];
 
     }
