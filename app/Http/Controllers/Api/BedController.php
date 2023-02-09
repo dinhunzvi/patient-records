@@ -82,4 +82,17 @@ class BedController extends Controller
 
     }
 
+    /**
+     * search for beds
+     * @param Request $request
+     * @return AnonymousResourceCollection
+     */
+    public function search( Request $request): AnonymousResourceCollection
+    {
+        $name = trim( $request->get( 'name' ) );
+
+        return BedResource::collection( Bed::where( 'name', 'like', "%{$name}%" )->get() );
+
+    }
+
 }

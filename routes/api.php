@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\BedController;
 use App\Http\Controllers\Api\MeasurementUnitController;
 use App\Http\Controllers\Api\MedicineController;
+use App\Http\Controllers\Api\PatientAdmissionController;
 use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\PrescriptionController;
 use App\Http\Controllers\Api\UserController;
@@ -44,11 +45,15 @@ Route::apiResource( '/wards', WardController::class );
 
 Route::apiResource( '/beds', BedController::class );
 
+Route::apiResource( '/patient-admissions', PatientAdmissionController::class );
+
 Route::post( '/measurement-units/search', [ MeasurementUnitController::class, 'search' ] );
 
 Route::post( '/patients/search', [ PatientController::class, 'search' ] );
 
 Route::post( '/wards/search', [ WardController::class, 'search' ] );
+
+Route::post( '/beds/search', [ BedController::class, 'search' ] );
 
 /**
  * get patient visits by month

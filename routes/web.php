@@ -107,6 +107,16 @@ Route::get( '/beds', function () {
     ]);
 })->name( 'beds' )->middleware( 'auth' );
 
+Route::get( '/patient-admissions', function () {
+    return view( 'patient-admissions', [
+        'charts'        => false,
+        'data_tables'   => true,
+        'date_picker'   => true,
+        'moment'        => true,
+        'type_ahead'    => true,
+    ]);
+})->name( 'patient-admissions' )->middleware( 'auth' );
+
 /*Route::get( '/verify', function () {
 
 })->name( 'verification.notice' );*/

@@ -103,6 +103,13 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ route( 'patient-admissions' ) }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Patient admissions</p>
+                        </a>
+                    </li>
+
                 </ul>
 
             </li>
