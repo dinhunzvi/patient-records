@@ -34,12 +34,28 @@
 
                                     <div class="col-12">
 
-                                        <div class="form-group" id="_patient_grp">
+                                        <div class="form-group" id="patient_grp">
 
                                             <label for="patient">Patient</label>
                                             <input type="text" id="patient" name="patient" placeholder="Patient"
                                                    autofocus autocomplete="off" class="form-control" />
                                             <input type="hidden" id="patient_id" name="patient_id" />
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-12">
+
+                                        <div class="form-group" id="prescription_date_grp">
+
+                                            <label for="prescription_date">Prescription date</label>
+                                            <input type="text" id="prescription_date" name="prescription_date"
+                                                   placeholder="Prescription date" autocomplete="off" class="form-control" />
 
                                         </div>
 
@@ -81,7 +97,7 @@
 
                                             <input type="text" id="medicine" name="medicine" class="form-control"
                                                    autocomplete="off" placeholder="Medicine" />
-                                            <input type="hidden" id="medicine_id" name="mediceine_id" />
+                                            <input type="hidden" id="medicine_id" name="medicine_id" />
 
                                         </div>
 
@@ -127,9 +143,11 @@
 
                                 </div>
 
-                                <table class="table table-striped table-hover" id="prescription-items">
+                            </div>
 
-                                    <thead>
+                            <table class="table table-striped table-hover" id="prescription-items">
+
+                                <thead>
 
                                     <tr>
 
@@ -140,11 +158,9 @@
 
                                     </tr>
 
-                                    </thead>
+                                </thead>
 
-                                </table>
-
-                            </div>
+                            </table>
 
                         </div>
 
@@ -191,6 +207,8 @@
         </div>
 
     </div>
+
+    @include( 'date_pickers.prescription_date' )
 
 @endsection
 

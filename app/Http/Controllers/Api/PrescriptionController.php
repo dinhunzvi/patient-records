@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PrescriptionRequest;
 use App\Http\Resources\PrescriptionResource;
+use App\Models\Item;
 use App\Models\Prescription;
+use App\Models\PrescriptionItem;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
@@ -27,11 +29,27 @@ class PrescriptionController extends Controller
      * Store a newly created resource in storage.
      *
      * @param PrescriptionRequest $request
-     * @return Prescription
+     * @return PrescriptionResource
      */
-    public function store(PrescriptionRequest $request): Prescription
+    public function store(PrescriptionRequest $request): PrescriptionResource
     {
-        return new Prescription( $request->validated() );
+        $prescription = Prescription::create( $request->validated() );
+
+        foreach ( Item::all() as $item ) {
+            $prescription_item = new PrescriptionItem;
+
+            $prescription_item->prescription_id = $prescription->id;
+            $prescription_item->medicine_id = $item->medicine_id;
+            $prescription_item->quantity = $item->quantity;
+            $prescription_item->dosage = $item->dosage;
+
+            $prescription_item->save();
+
+            $item->delete();
+
+        }
+
+        return new PrescriptionResource( $prescription );
 
     }
 

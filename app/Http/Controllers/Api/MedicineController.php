@@ -94,4 +94,5 @@ class MedicineController extends Controller
         return MedicineResource::collection( Medicine::where( 'name', 'like', "%{$name}%" )->get() );
 
     }
+
 }

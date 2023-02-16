@@ -91,7 +91,7 @@ Route::get( '/wards', function () {
     return view( 'wards', [
         'charts'        => false,
         'data_tables'   => true,
-        'date_picker'   => false,
+        'date_picker'   => true,
         'moment'        => false,
         'type_ahead'    => false,
     ]);

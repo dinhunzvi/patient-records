@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BedController;
+use App\Http\Controllers\Api\ItemController;
 use App\Http\Controllers\Api\MeasurementUnitController;
 use App\Http\Controllers\Api\MedicineController;
 use App\Http\Controllers\Api\PatientAdmissionController;
@@ -47,6 +48,8 @@ Route::apiResource( '/beds', BedController::class );
 
 Route::apiResource( '/patient-admissions', PatientAdmissionController::class );
 
+Route::apiResource( '/items', ItemController::class );
+
 Route::post( '/measurement-units/search', [ MeasurementUnitController::class, 'search' ] );
 
 Route::post( '/patients/search', [ PatientController::class, 'search' ] );
@@ -54,6 +57,8 @@ Route::post( '/patients/search', [ PatientController::class, 'search' ] );
 Route::post( '/wards/search', [ WardController::class, 'search' ] );
 
 Route::post( '/beds/search', [ BedController::class, 'search' ] );
+
+Route::post( '/medicines/search', [ MedicineController::class, 'search' ] );
 
 /**
  * get patient visits by month
