@@ -35,8 +35,9 @@ class UserRequest extends FormRequest
     public function store(): array
     {
         return [
-            'name'                  => 'required|min:5|max:100',
-            'email'                 => 'required|email|unique:users,email',
+            'name'      => 'required|min:5|max:100',
+            'email'     => 'required|email|unique:users,email',
+            'role'      => 'required|in:Administrator,General,Practitioner'
         ];
 
     }
@@ -49,7 +50,8 @@ class UserRequest extends FormRequest
     {
         return [
             'name'      => 'required|min:5|max:100',
-            'email'     => 'required|email|unique:users,email,' . $this->user_id,
+            'email'     => 'required|email|unique:users,email,' . $this->user->id,
+            'role'      => 'required|in:Administrator,General,Practitioner'
         ];
 
     }
@@ -67,6 +69,8 @@ class UserRequest extends FormRequest
             'email.required'    => 'Enter user\'s email address',
             'email.email'       => 'Email address is not valid',
             'email.unique'      => 'Email address already taken',
+            'role.required'     => 'Select the user\'s role',
+            'role.in'           => 'User\'s role must either be Administrator, General or Practitioner'
         ];
 
     }

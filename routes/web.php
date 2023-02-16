@@ -82,7 +82,7 @@ Route::get( '/prescriptions', function () {
         'charts'        => false,
         'data_tables'   => true,
         'date_picker'   => true,
-        'moment'        => false,
+        'moment'        => true,
         'type_ahead'    => true,
     ]);
 })->name( 'prescriptions' )->middleware( 'auth' );

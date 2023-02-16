@@ -22,7 +22,7 @@
 
                     </div>
 
-                    @include( 'includes.modal_message' )
+                    @include( 'includes.message' )
 
                     <form method="post" id="user-details">
 
@@ -48,6 +48,22 @@
                                     <label for="email">Email address</label>
                                     <input type="text" id="email" name="email" class="form-control" autocomplete="off"
                                            placeholder="Email address" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+
+                                <div class="form-group" id="role_grp">
+
+                                    <label for="role">User role</label>
+                                    <select id="role" name="role" class="form-control">
+                                        <option value="">Select user role</option>
+                                        <option value="Administrator">Administrator</option>
+                                        <option value="General">General</option>
+                                        <option value="Practitioner">Nurse/Doctor</option>
+                                    </select>
 
                                 </div>
 
@@ -85,6 +101,7 @@
 
                                 <th>Name</th>
                                 <th>Email address</th>
+                                <th>Role</th>
                                 <th>Date created</th>
                                 <th>Date updated</th>
                                 <th>Actions</th>

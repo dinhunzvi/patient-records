@@ -36,6 +36,7 @@ class UserController extends Controller
         return new UserResource( $action->create([
             'name'      => ucwords( trim( $request->name ) ),
             'email'     => strtolower( trim( $request->email ) ),
+            'role'      => trim( $request->role ),
             'password'  => Str::random( 10 )
         ]) );
 

@@ -82,4 +82,16 @@ class MedicineController extends Controller
 
     }
 
+    /**
+     * search for medicines using name
+     * @param Request $request
+     * @return AnonymousResourceCollection
+     */
+    public function search( Request $request): AnonymousResourceCollection
+    {
+        $name = trim( $request->name );
+
+        return MedicineResource::collection( Medicine::where( 'name', 'like', "%{$name}%" )->get() );
+
+    }
 }

@@ -34,8 +34,8 @@ class PatientRequest extends FormRequest
     public function store(): array
     {
         return [
-            'first_name'    => 'required',
-            'last_name'     => 'required',
+            'first_name'    => 'required|alpha',
+            'last_name'     => 'required|alpha',
             'id_number'     => 'required|alpha_num|min:8|max:15|unique:patients,id_number',
             'dob'           => 'required|date',
             'address'       => 'required',
@@ -51,8 +51,8 @@ class PatientRequest extends FormRequest
     public function update(): array
     {
         return [
-            'first_name'    => 'required',
-            'last_name'     => 'required',
+            'first_name'    => 'required|alpha',
+            'last_name'     => 'required|alpha',
             'id_number'     => 'required|alpha_num|min:8|max:15|unique:patients,id_number,' . $this->id,
             'dob'           => 'required|date',
             'address'       => 'required',

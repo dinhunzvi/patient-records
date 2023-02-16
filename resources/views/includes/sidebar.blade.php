@@ -31,7 +31,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
-                        Static data
+                        General
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a href="{{ route( 'medicines') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Medicines</p>
+                            <p>Pharmacy</p>
                         </a>
                     </li>
 

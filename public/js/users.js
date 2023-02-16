@@ -30,12 +30,14 @@ $( document ).ready( function () {
                     columns         : [
                         { 'title'   : "Name" },
                         { 'title'   : "Email address" },
+                        { 'title'   : "Role" },
                         { 'title'   : "Date created" },
                         { 'title'   : "Date updated" },
                         { 'title'   : "Actions" },
                     ], columns      : [
                         { "data"    : "name" },
                         { "data"    : "email" },
+                        { "data"    : "role" },
                         { "data"    : "created_at" },
                         { "data"    : "updated_at" },
                         {
@@ -83,10 +85,12 @@ $( document ).ready( function () {
             $( '#user_id' ).val( '' );
             $( '#name' ).val( '' );
             $( '#email' ).val( '' );
+            $( '#role' ).val( '' );
         } else {
             $( '#user_id' ).val( user.id );
             $( '#name' ).val( user.name );
             $( '#email' ).val( user.email );
+            $( '#role' ).val( user.role );
         }
     }
 
@@ -133,6 +137,7 @@ $( document ).ready( function () {
         let form_data = {
             'name'    : $( '#name' ).val(),
             'email'   : $( '#email' ).val(),
+            'role'    : $( '#role' ).val()
         };
 
         $.ajax({
@@ -150,6 +155,10 @@ $( document ).ready( function () {
 
                     if ( errors.name ) {
                         display_error( $( '#name_grp' ), errors.name[0] );
+                    }
+
+                    if ( errors.role ) {
+                        display_error( $( '#role_grp' ), errors.role[0] );
                     }
 
                 }
@@ -175,6 +184,7 @@ $( document ).ready( function () {
         let form_data = {
             'email'     : $( '#email' ).val(),
             'name'      : $( '#name' ).val(),
+            'role'      : $( '#role' ).val()
         };
 
         $.ajax({
@@ -184,7 +194,7 @@ $( document ).ready( function () {
 
                 if ( data.status === 422 ) {
 
-                    let response = $.parseJson( data.responseText );
+                    let response = $.parseJSON( data.responseText );
 
                     let errors = response.errors;
 
@@ -194,6 +204,10 @@ $( document ).ready( function () {
 
                     if ( errors.name ) {
                         display_error( $( '#name_grp' ), errors.name[0] );
+                    }
+
+                    if ( errors.role ) {
+                        display_error( $( '#role_grp' ), errors.role );
                     }
 
                 }

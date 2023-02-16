@@ -171,8 +171,8 @@ to get the desired effect
 @endif
 
 @if ( $moment )
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" type="text/javascript"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/datetime-moment.js" type="text/javascript"></script>
+    <script src="{{ asset( 'js/moment.js' ) }}" type="text/javascript"></script>
+    <script src="{{ asset( 'js/datetime-moment.js' ) }}" type="text/javascript"></script>
 @endif
 
 </body>
